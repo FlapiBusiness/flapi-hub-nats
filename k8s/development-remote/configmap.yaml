@@ -39,7 +39,7 @@ data:
       no_tls: false
       same_origin: true
       allowed_origins [
-        "https://hub.flapi.org"
+        "https://dev.hub.flapi.org"
       ]
       tls: {
         cert_file: "/etc/nats/certs/tls.crt"

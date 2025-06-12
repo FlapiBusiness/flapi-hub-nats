@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: dev-nats-crzcommon-service
+  name: dev-hub-nats-flapi-service
   namespace: dev-hub-nats-flapi
   labels:
     app: nats

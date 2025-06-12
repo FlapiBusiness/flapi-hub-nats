@@ -12,18 +12,18 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-      - hub-nats-tcp.flapi.org
+      - hub-nats.flapi.org
       - hub-nats-ws.flapi.org
       secretName: letsencrypt-production
   rules:
-    - host: hub-nats-tcp.flapi.org
+    - host: hub-nats.flapi.org
       http:
         paths:
           - pathType: Prefix
             path: /
             backend:
               service:
-                name: dev-nats-crzcommon-service
+                name: dev-hub-nats-flapi-service
                 port:
                   number: 8222
     - host: hub-nats-ws.flapi.org
@@ -33,6 +33,6 @@ spec:
             path: /
             backend:
               service:
-                name: dev-nats-crzcommon-service
+                name: dev-hub-nats-flapi-service
                 port:
                   number: 443

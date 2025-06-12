@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: dev-hub-nats-flapi-tls
   dnsNames:
-    - dev.hub-nats-tcp.flapi.org
+    - dev.hub-nats.flapi.org
     - dev.hub-nats-ws.flapi.org
   issuerRef:
     name: letsencrypt-production
