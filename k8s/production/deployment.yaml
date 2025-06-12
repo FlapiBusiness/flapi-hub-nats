@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prod-hub-nats-flapi-deployment
+  namespace: prod-hub-nats-flapi
+spec:
+  replicas: 1
+  strategy: {}
+  selector:
+    matchLabels:
+      app: nats
+  template:
+    metadata:
+      labels:
+        app: nats
+    spec:
+      containers:
+        - name: nats
+          image: nats:latest
+          args: ["-config", "/etc/nats-config/nats.conf"]
+          ports:
+            - containerPort: 4222
+            - containerPort: 8222
+            - containerPort: 443
+          volumeMounts:
+            - name: nats-config-volume
+              mountPath: /etc/nats-config
+            - name: tls
+              mountPath: /etc/nats/certs
+              readOnly: true
+            - name: nats-pid
+              mountPath: /var/run/nats
+            - name: jetstream-storage
+              mountPath: /data/nats
+      volumes:
+        - name: nats-config-volume
+          configMap:
+            name: prod-hub-nats-flapi-configmap
+        - name: tls
+          secret:
+            secretName: prod-hub-nats-flapi-tls
+        - name: nats-pid
+          emptyDir: {}
+        - name: jetstream-storage
+          persistentVolumeClaim:
+            claimName: prod-hub-nats-flapi-pvc

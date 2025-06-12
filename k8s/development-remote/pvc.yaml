@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dev-hub-nats-flapi-pvc
+  namespace: dev-hub-nats-flapi
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: nats-storage
+  resources:
+    requests:
+      storage: 100Gi

@@ -1,0 +1,38 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dev-hub-nats-flapi-ingress
+  namespace: dev-hub-nats-flapi
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    #nginx.ingress.kubernetes.io/auth-realm: Authentication Required
+    #nginx.ingress.kubernetes.io/auth-secret: dev-nats-auth-secret
+    #nginx.ingress.kubernetes.io/auth-type: basic
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - hub-nats-tcp.flapi.org
+      - hub-nats-ws.flapi.org
+      secretName: letsencrypt-production
+  rules:
+    - host: hub-nats-tcp.flapi.org
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: dev-nats-crzcommon-service
+                port:
+                  number: 8222
+    - host: hub-nats-ws.flapi.org
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: dev-nats-crzcommon-service
+                port:
+                  number: 443

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: dev-hub-nats-flapi-pv
+  namespace: dev-hub-nats-flapi
+spec:
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: nats-storage
+  hostPath:
+    path: /data/nats

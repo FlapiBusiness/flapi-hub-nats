@@ -1,0 +1,30 @@
+name: build_deploy
+
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+jobs:
+  build_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Connect to the cluster K3S for deploy - development-remote
+        uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBECONFIG }}
+        with:
+          args: |
+            apply -f k8s/development-remote/namespace.yaml
+            -f k8s/development-remote/certificate.yaml
+            -f k8s/development-remote/configmap.yaml
+            -f k8s/development-remote/deployment.yaml
+            -f k8s/development-remote/secret.yaml
+            -f k8s/development-remote/ingress.yaml
+            -f k8s/development-remote/service.yaml
+            -f k8s/development-remote/pv.yaml
+            -f k8s/development-remote/pvc.yaml
