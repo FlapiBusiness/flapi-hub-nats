@@ -6,7 +6,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: nats-storage
+  storageClassName: staging-hub-nats-flapi-storage
   resources:
     requests:
       storage: 100Gi

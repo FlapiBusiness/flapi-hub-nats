@@ -2,13 +2,12 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: staging-hub-nats-flapi-pv
-  namespace: staging-hub-nats-flapi
 spec:
   capacity:
     storage: 100Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: nats-storage
+  storageClassName: staging-hub-nats-flapi-storage
   hostPath:
     path: /data/nats
