@@ -13,7 +13,7 @@ spec:
       port: 4222
       targetPort: 4222
     - name: client-ws
-      port: 443
-      targetPort: 443
+      port: 8443
+      targetPort: 8443
     - name: monitor
       port: 8222

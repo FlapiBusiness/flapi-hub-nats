@@ -21,7 +21,7 @@ spec:
           ports:
             - containerPort: 4222
             - containerPort: 8222
-            - containerPort: 443
+            - containerPort: 8443
           volumeMounts:
             - name: nats-config-volume
               mountPath: /etc/nats-config
