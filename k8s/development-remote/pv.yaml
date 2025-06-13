@@ -10,4 +10,4 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: dev-hub-nats-flapi-storage
   hostPath:
-    path: /data/nats
+    path: /data/nats/dev

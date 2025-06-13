@@ -10,4 +10,4 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: staging-hub-nats-flapi-storage
   hostPath:
-    path: /data/nats
+    path: /data/nats/staging
