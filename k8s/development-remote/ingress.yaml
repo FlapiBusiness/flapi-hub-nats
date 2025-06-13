@@ -4,10 +4,16 @@ metadata:
   name: dev-hub-nats-flapi-ingress
   namespace: dev-hub-nats-flapi
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-production
     #nginx.ingress.kubernetes.io/auth-realm: Authentication Required
     #nginx.ingress.kubernetes.io/auth-secret: dev-nats-auth-secret
     #nginx.ingress.kubernetes.io/auth-type: basic
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600" # Timeout long pour WebSocket
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/websocket-services: "dev-hub-nats-flapi-service" # Support WebSocket
+    nginx.ingress.kubernetes.io/upstream-vhost: "dev.hub-nats-ws.flapi.org"
 spec:
   ingressClassName: nginx
   tls:
