@@ -14,7 +14,7 @@ spec:
     - hosts:
       - dev.hub-nats.flapi.org
       - dev.hub-nats-ws.flapi.org
-      secretName: letsencrypt-production
+      secretName: dev-hub-nats-flapi-tls
   rules:
     - host: dev.hub-nats.flapi.org
       http:
