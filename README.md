@@ -1,4 +1,4 @@
-# Crzgames - Nats Server
+# Flapi - Hub Nats
    
 ## 🛠 Tech Stack
 - NATS (broker message)
@@ -37,14 +37,3 @@ go install github.com/nats-io/nkeys/nk@latest
 ```bash
 nk -gen user -pubout
 ```
-
-<br /><br /><br /><br />
-
-
-## 🚀 Production
-
-### ⚙️➡️ Automatic - Pipeline CI / CD :
-
-<br />
-
-### ✋ Manual :

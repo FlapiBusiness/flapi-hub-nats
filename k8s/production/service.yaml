@@ -10,8 +10,8 @@ spec:
     app: nats
   ports:
     - name: client-tcp
-      port: 4222
-      targetPort: 4222
+      port: 4224
+      targetPort: 4224
     - name: client-ws
       port: 443
       targetPort: 443
