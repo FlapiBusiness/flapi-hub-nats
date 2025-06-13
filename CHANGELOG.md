@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/FlapiBusiness/flapi-hub-nats/compare/v1.0.0...v1.0.1) (2025-06-13)
+
+
+### Bug Fixes
+
+* fixed .yaml ([ac9bcc5](https://github.com/FlapiBusiness/flapi-hub-nats/commit/ac9bcc53b235d5d98e2eef0c3d9a86f4803f457d))
+
 ## 1.0.0 (2025-06-13)
 
 
