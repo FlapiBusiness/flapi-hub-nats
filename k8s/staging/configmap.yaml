@@ -7,7 +7,7 @@ data:
   nats.conf: |
     pid_file: "/var/run/nats/nats.pid"
     host: "0.0.0.0"
-    port: 4222
+    port: 4223
     debug: true
     trace: true
     logtime: true
@@ -37,10 +37,8 @@ data:
     websocket: {
       port: 443
       no_tls: false
-      same_origin: true
-      allowed_origins [
-        "https://staging.hub.flapi.org"
-      ]
+      same_origin: false
+      allowed_origins ["*"]
       tls: {
         cert_file: "/etc/nats/certs/tls.crt"
         key_file: "/etc/nats/certs/tls.key"

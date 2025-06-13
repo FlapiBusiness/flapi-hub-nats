@@ -19,7 +19,7 @@ spec:
           image: nats:latest
           args: ["-config", "/etc/nats-config/nats.conf"]
           ports:
-            - containerPort: 4222
+            - containerPort: 4224
             - containerPort: 8222
             - containerPort: 443
           volumeMounts:
